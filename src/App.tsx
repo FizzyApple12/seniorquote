@@ -2,6 +2,8 @@ import { Container, Text } from '@mantine/core';
 import { useState } from 'react';
 import ReactPlayer from 'react-player';
 
+import RickRollVideo from "/Rick_Astley_Never_Gonna_Give_You_Up.mp4"
+
 const quotes: [string, string][] = [
     ["The unexamined life is not worth living", "Socrates"],
     ["Whereof one cannot speak, thereof one must be silent", "Ludwig Wittgenstein"],
@@ -119,6 +121,13 @@ export default function App() {
             onClick={clickFunction}>
 
             <ReactPlayer 
+                config={{
+                    file: { 
+                        attributes: { 
+                            preload: 'auto' 
+                        } 
+                    } 
+                }}
                 style={{
                     display: `${(activatedFun) ? 'block' : 'none'}`,
                     position: "fixed",
@@ -129,7 +138,7 @@ export default function App() {
                 }}
                 width={"100vw"}
                 height={"100vh"}
-                url='https://archive.org/11/items/Rick_Astley_Never_Gonna_Give_You_Up/Rick_Astley_Never_Gonna_Give_You_Up.mp4'
+                url={RickRollVideo}
                 controls={false}
                 loop={true}
                 playing={playingRickRoll}
